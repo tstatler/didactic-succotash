@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 
 app.post('/webhook', (req, res) => {
 
-  var response
+  let response
 
   console.log(req.headers)
   console.log(req.body)
@@ -28,7 +28,7 @@ app.post('/webhook', (req, res) => {
   // hash the message string with your Webhook Secret Token and prepend the version semantic
   const signature = `v0=${hashForVerify}`
 
-  // you validating the request came from Zoom https://marketplace.zoom.us/docs/api-reference/webhook-reference#notification-structure
+  // validating the request came from Zoom https://marketplace.zoom.us/docs/api-reference/webhook-reference#notification-structure
   if (req.headers['x-zm-signature'] === signature) {
 
     // Zoom validating you control the webhook endpoint https://marketplace.zoom.us/docs/api-reference/webhook-reference#validate-webhook-endpoint
